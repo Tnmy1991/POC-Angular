@@ -1,0 +1,17 @@
+<div class="card">
+  <div class="card-body">
+    <div class="card-title">WordsAPI API</div>
+    <form (ngSubmit)="searchWordsAPI()">
+      <div class="form-group">
+        <input type="text" class="form-control" [formControl]="wordField" placeholder="Type your word">
+      </div>
+      <div class="btn-group" role="group" aria-label="Related Words">
+        <button type="submit" class="btn btn-primary" [disabled]="wordField.invalid" (click)="searchMode('typeOf')">Is a Type Of</button>
+        <button type="submit" class="btn btn-primary" [disabled]="wordField.invalid" (click)="searchMode('hasTypes')">Has Types</button>
+        <button type="submit" class="btn btn-primary" [disabled]="wordField.invalid" (click)="searchMode('partOf')">Part Of</button>
+      </div>
+    </form>
+    <small class="form-text text-muted"><em>*</em> Checks for fake DNS as well as uses regex functions to check the email for the right length and accepted characters.</small>
+  </div>
+</div>
+<div class="loader loader-default is-active" *ngIf="showLoader"></div>

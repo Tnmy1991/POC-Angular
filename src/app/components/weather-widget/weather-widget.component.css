@@ -1,0 +1,15 @@
+.clear { clear:both; }
+.card { padding:1em; }
+.city { font-family: Roboto;font-weight: 300;font-size: 1.8em;color:#5b5b5b; }
+.weather-icon { width:5em;height:5em;margin-top: 1em; }
+.temp { text-align:right;font-family:Roboto;font-weight: 300;font-size: 8.5em;margin-top:-.75em;color:#5b5b5b; }
+.unit { font-size:.8em; }
+.speed:before { content:url('../../../assets/icons/icons8-wind-30.png'); }
+.max-temp:before { content:url('../../../assets/icons/icons8-thermometer-up-30.png'); }
+.min-temp:before { content:url('../../../assets/icons/icons8-thermometer-down-30.png'); }
+.direction:before { content:url('../../../assets/icons/icons8-direction-30.png'); }
+.clouds:before { content:url('../../../assets/icons/icons8-clouds-30.png'); }
+.pressure:before { content:url('../../../assets/icons/icons8-atmospheric-pressure-30.png'); }
+.humidity:before { content:url('../../../assets/icons/icons8-hygrometer-30.png'); }
+.sunrise:before { content:url('../../../assets/icons/icons8-sunrise-30.png'); }
+.sunset:before { content:url('../../../assets/icons/icons8-sunset-30.png'); }

@@ -1,0 +1,17 @@
+<div class="card" *ngIf="response">
+  <span class="city">{{response.name}}, {{response.sys.country}}</span>
+  <div class="weather-icon"><img src="{{icons_baseurl}}{{response.weather[0].icon}}{{icons_sufix}}" alt="..."></div>
+  <span class="temp">{{ response.main.temp - 273.15}}&#176;</span>
+  <div class="row">
+    <div class="col-md-12">{{response.weather[0].main}}</div>
+    <div class="col-md-6"><span class="max-temp">{{ response.main.temp_max - 273.15}}<span class="unit">&#176;</span></span></div>
+    <div class="col-md-6"><span class="min-temp">{{ response.main.temp_min - 273.15}}<span class="unit">&#176;</span></span></div>
+    <div class="col-md-6"><span class="pressure">{{ response.main.pressure / 1000 }}<span class="unit">bar</span></span></div>
+    <div class="col-md-6"><span class="humidity">{{ response.main.humidity }}<span class="unit">%</span></span></div>
+    <div class="col-md-6"><span class="sunrise">{{ response.sys.sunrise * 1000 | date: 'shortTime' }}</span></div>
+    <div class="col-md-6"><span class="sunset">{{ response.sys.sunset * 1000 | date: 'shortTime' }}</span></div>
+    <div class="col-md-6"><span class="clouds">{{ response.clouds.all }}</span></div>
+    <div class="col-md-6"><span class="direction">{{ response.wind.deg }}<span class="unit">&#176;</span></span></div>
+    <div class="col-md-12"><span class="speed">{{ response.wind.speed }}<span class="unit">miles/hour</span></span></div>
+  </div>
+</div>
