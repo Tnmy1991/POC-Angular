@@ -19,21 +19,58 @@
         </form>
       </div>
     </div>
-    <!-- <form *ngIf="searchMode == 'address'" (ngSubmit)="searchUsingAddress()">
-      <div class="form-group">
-        <input type="text" class="form-control" [formControl]="pincodeField" placeholder="Enter an address">
-        <div *ngIf="pincodeField.invalid && (pincodeField.dirty || pincodeField.touched)" class="alert alert-danger">
-          <small class="form-text text-muted"><em>*</em> Enter a valid address.</small>
-        </div>
+    <div class="card" *ngIf="searchMode == 'address'">
+      <div class="card-body">
+        <div class="card-title">Search Post Officess by Address</div>
+        <form [formGroup]="searchForm" (ngSubmit)="searchUsingAddress()">
+          <div class="form-group">
+            <input type="text" class="form-control" formControlName="address" placeholder="Enter an address">
+          </div>
+          <div class="form-group">
+            <select class="custom-select custom-select-lg mb-3" formControlName="state_id">
+              <option value="">Select a State</option>
+              <option value="1">Telangana</option>
+              <option value="2">Andhra Pradesh</option>
+              <option value="3">Pondicherry</option>
+              <option value="4">Assam</option>
+              <option value="5">Bihar</option>
+              <option value="6">Chattisgarh</option>
+              <option value="7">Delhi</option>
+              <option value="8">Gujarat</option>
+              <option value="9">Daman & Diu</option>
+              <option value="10">Dadra & Nagar Haveli</option>
+              <option value="11">Haryana</option>
+              <option value="12">Himachal Pradesh</option>
+              <option value="13">Jammu & Kashmir</option>
+              <option value="14">Jharkhand</option>
+              <option value="15">Karnataka</option>
+              <option value="16">Kerala</option>
+              <option value="17">Lakshadweep</option>
+              <option value="18">Madhya Pradesh</option>
+              <option value="19">Maharashtra</option>
+              <option value="20">Goa</option>
+              <option value="21">Manipur</option>
+              <option value="22">Mizoram</option>
+              <option value="23">Nagaland</option>
+              <option value="24">Tripura</option>
+              <option value="25">Arunachal Pradesh</option>
+              <option value="26">Meghalaya</option>
+              <option value="27">Odisha</option>
+              <option value="28">Chandigarh</option>
+              <option value="29">Punjab</option>
+              <option value="30">Rajasthan</option>
+              <option value="31">Tamil Nadu</option>
+              <option value="32">Uttar Pradesh</option>
+              <option value="33">Uttarakhand</option>
+              <option value="34">West Bengal</option>
+              <option value="35">Andaman & Nicobar Islands</option>
+              <option value="36">Sikkim</option>
+            </select>
+          </div>
+          <button type="submit" [disabled]="searchForm.invalid" class="btn btn-primary">Search</button>
+        </form>
       </div>
-      <div class="form-group">
-        <input type="text" class="form-control" [formControl]="pincodeField" placeholder="Enter an address">
-        <div *ngIf="pincodeField.invalid && (pincodeField.dirty || pincodeField.touched)" class="alert alert-danger">
-          <small class="form-text text-muted"><em>*</em> Enter a valid address.</small>
-        </div>
-      </div>
-      <button type="submit" [disabled]="pincodeField.invalid" class="btn btn-primary">Search</button>
-    </form> -->
+    </div>
     <small class="form-text text-muted"><em>*</em> Find a list of post offices using either a postal code/pincode or search string in location name.</small>
   </div>
 </div>
