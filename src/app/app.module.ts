@@ -7,13 +7,15 @@ import { HttpClientModule } from '@angular/common/http';
 import { EmailValidatorComponent } from './components/email-validator/email-validator.component';
 import { WordsComponent } from './components/words/words.component';
 import { WeatherWidgetComponent } from './components/weather-widget/weather-widget.component';
+import { SearchPostOfficesComponent } from './components/search-post-offices/search-post-offices.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     EmailValidatorComponent,
     WordsComponent,
-    WeatherWidgetComponent
+    WeatherWidgetComponent,
+    SearchPostOfficesComponent
   ],
   imports: [
     BrowserModule,
