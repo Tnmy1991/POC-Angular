@@ -5,6 +5,10 @@ export const environment = {
     email: {
       host: "pozzad-email-validator.p.rapidapi.com",
       endpoint: "https://pozzad-email-validator.p.rapidapi.com/emailvalidator/validateEmail/"
+    },
+    post_office: {
+      host: "pincode.p.rapidapi.com",
+      endpoint: "https://pincode.p.rapidapi.com/"
     }
   },
   openweather_api: {

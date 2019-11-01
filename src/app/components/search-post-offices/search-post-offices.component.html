@@ -1,11 +1,11 @@
 <div class="card">
   <div class="card-body">
     <div class="card-title">Pin Codes - India API</div>
-    <div class="btn-group" role="group" aria-label="Search Modes">
+    <div class="btn-group margin-bottom" role="group" aria-label="Search Modes">
       <button type="submit" class="btn btn-primary" (click)="setSearchMode('pincode')">Search by Pincode</button>
       <button type="submit" class="btn btn-primary" (click)="setSearchMode('address')">Search by Address</button>
     </div>
-    <div class="card" *ngIf="searchMode == 'pincode'">
+    <div class="card margin-bottom" *ngIf="searchMode == 'pincode'">
       <div class="card-body">
         <div class="card-title">Search Post Officess by Pincode</div>
         <form (ngSubmit)="searchUsingPincode()">
@@ -19,7 +19,7 @@
         </form>
       </div>
     </div>
-    <div class="card" *ngIf="searchMode == 'address'">
+    <div class="card margin-bottom" *ngIf="searchMode == 'address'">
       <div class="card-body">
         <div class="card-title">Search Post Officess by Address</div>
         <form [formGroup]="searchForm" (ngSubmit)="searchUsingAddress()">
@@ -27,7 +27,7 @@
             <input type="text" class="form-control" formControlName="address" placeholder="Enter an address">
           </div>
           <div class="form-group">
-            <select class="custom-select custom-select-lg mb-3" formControlName="state_id">
+            <select class="custom-select mb-3" formControlName="state_id">
               <option value="">Select a State</option>
               <option value="1">Telangana</option>
               <option value="2">Andhra Pradesh</option>
@@ -70,6 +70,24 @@
           <button type="submit" [disabled]="searchForm.invalid" class="btn btn-primary">Search</button>
         </form>
       </div>
+    </div>
+    <div class="row result-container" *ngIf="response">
+      <div class="col-lg-6" *ngFor="let result of response">
+        <h6>{{ result.office }}</h6>
+        <p class="lead"><em>Office Type:</em> <strong>{{ result.office_type }}</strong></p>
+        <p class="lead"><em>Delivery:</em> <strong>{{ result.delivery }}</strong></p>
+        <p class="lead"><em>Division:</em> <strong>{{ result.division }}</strong></p>
+        <p class="lead"><em>Region:</em> <strong>{{ result.region }}</strong></p>
+        <p class="lead"><em>Circle:</em> <strong>{{ result.circle }}</strong></p>
+        <p class="lead"><em>Taluk:</em> <strong>{{ result.taluk }}</strong></p>
+        <p class="lead"><em>District:</em> <strong>{{ result.district }}</strong></p>
+        <p class="lead"><em>State ID:</em> <strong>{{ result.state_id }}</strong></p>
+        <p class="lead"><em>Phone:</em> <strong>{{ result.phone }}</strong></p>
+        <p class="lead"><em>Related Sub-office:</em> <strong>{{ result.related_suboffice }}</strong></p>
+        <p class="lead"><em>Related Head-office:</em> <strong>{{ result.related_headoffice }}</strong></p>
+      </div>
+      <br>
+      <small class="form-text text-muted">Total {{ response?.length }} record(s) found.</small>
     </div>
     <small class="form-text text-muted"><em>*</em> Find a list of post offices using either a postal code/pincode or search string in location name.</small>
   </div>
