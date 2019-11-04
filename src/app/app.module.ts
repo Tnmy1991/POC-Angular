@@ -8,6 +8,7 @@ import { EmailValidatorComponent } from './components/email-validator/email-vali
 import { WordsComponent } from './components/words/words.component';
 import { WeatherWidgetComponent } from './components/weather-widget/weather-widget.component';
 import { SearchPostOfficesComponent } from './components/search-post-offices/search-post-offices.component';
+import { SearchRailwaysStationsComponent } from './components/search-railways-stations/search-railways-stations.component';
 
 @NgModule({
   declarations: [
@@ -15,7 +16,8 @@ import { SearchPostOfficesComponent } from './components/search-post-offices/sea
     EmailValidatorComponent,
     WordsComponent,
     WeatherWidgetComponent,
-    SearchPostOfficesComponent
+    SearchPostOfficesComponent,
+    SearchRailwaysStationsComponent
   ],
   imports: [
     BrowserModule,

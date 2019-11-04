@@ -9,6 +9,10 @@ export const environment = {
     post_office: {
       host: "pincode.p.rapidapi.com",
       endpoint: "https://pincode.p.rapidapi.com/"
+    },
+    railways_station: {
+      host: "rstations.p.rapidapi.com",
+      endpoint: "https://rstations.p.rapidapi.com/"
     }
   },
   openweather_api: {
