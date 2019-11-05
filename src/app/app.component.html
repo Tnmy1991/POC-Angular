@@ -1,8 +1,12 @@
 <!--The content below is only a placeholder and can be replaced.-->
 <div class="container">
   <div class="jumbotron">
-    <h1>Welcome</h1>
-    <h2>{{ title }}</h2>
+    <h1 class="display-4">{{ title }}!</h1>
+    <hr class="my-4">
+    <app-weather-widget></app-weather-widget>
+    <hr class="my-4">
+    <p>It uses utility classes for typography and spacing to space content out within the larger container.</p>
+    <a class="btn btn-primary btn-lg" href="#" role="button">Learn more</a>
   </div>
   <div class="row">
     <div class="col-lg-8">
@@ -17,8 +21,8 @@
         <app-search-railways-stations></app-search-railways-stations>
       </div>
     </div>
-    <div class="col-lg-4">
+    <!-- <div class="col-lg-4">
       <app-weather-widget></app-weather-widget>
-    </div>
+    </div> -->
   </div>
 </div>

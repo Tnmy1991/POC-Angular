@@ -6,5 +6,5 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'POC - Email Validator API';
+  title = 'Angular - API based POC Projects';
 }

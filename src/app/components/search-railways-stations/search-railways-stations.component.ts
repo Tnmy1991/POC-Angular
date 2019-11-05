@@ -25,12 +25,8 @@ export class SearchRailwaysStationsComponent implements OnInit {
 
   searchStations() {
     this.showLoader = true;
-    var requestBody =  {
-      "search": this.searchField.value
-    };
-
-    this.provider.searchRailwaysStations( requestBody ).subscribe((res: any) => {
-      this.response = res;
+    this.provider.searchRailwaysStations( this.searchField.value ).subscribe((res: any) => {
+      this.response = res.stations;
       this.showResult = true;
       this.showLoader = false;
     });

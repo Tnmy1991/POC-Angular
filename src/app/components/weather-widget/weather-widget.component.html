@@ -1,17 +1,63 @@
-<div class="card" *ngIf="response">
-  <span class="city">{{response.name}}, {{response.sys.country}}</span>
-  <div class="weather-icon"><img src="{{icons_baseurl}}{{response.weather[0].icon}}{{icons_sufix}}" alt="..."></div>
-  <span class="temp">{{ response.main.temp - 273.15 | number:'1.0-0' }}&#176;</span>
+<div *ngIf="response">
+  <span class="city">{{response.weather[0].main}} - {{response.name}}, {{response.sys.country}}</span>
   <div class="row">
-    <div class="col-md-12">{{response.weather[0].main}}</div>
-    <div class="col-md-6"><span class="max-temp">{{ response.main.temp_max - 273.15 | number:'1.0-1' }}<span class="unit">&#176;</span></span></div>
-    <div class="col-md-6"><span class="min-temp">{{ response.main.temp_min - 273.15 | number:'1.0-1' }}<span class="unit">&#176;</span></span></div>
-    <div class="col-md-6"><span class="pressure">{{ response.main.pressure / 1000 | number:'1.0-3' }}<span class="unit">bar</span></span></div>
-    <div class="col-md-6"><span class="humidity">{{ response.main.humidity }}<span class="unit">%</span></span></div>
-    <div class="col-md-6"><span class="sunrise">{{ response.sys.sunrise * 1000 | date: 'shortTime' }}</span></div>
-    <div class="col-md-6"><span class="sunset">{{ response.sys.sunset * 1000 | date: 'shortTime' }}</span></div>
-    <div class="col-md-6"><span class="clouds">{{ response.clouds.all }}</span></div>
-    <div class="col-md-6"><span class="direction">{{ response.wind.deg }}<span class="unit">&#176;</span></span></div>
-    <div class="col-md-12"><span class="speed">{{ response.wind.speed }}<span class="unit">miles/hour</span></span></div>
+    <div class="col-lg-3 inline-col">
+      <div class="weather-icon">
+        <img src="{{icons_baseurl}}{{response.weather[0].icon}}{{icons_sufix}}" alt="{{response.weather[0].description}}">
+      </div>
+      <span class="temp">{{ response.main.temp - 273.15 | number:'1.0-0' }}&#176;</span>
+    </div>
+    <div class="col-lg-9" style="margin-top: 20px;">
+      <ul class="list-group list-group-horizontal">
+        <li class="list-group-item" style="width: 15%;">  
+          <div class="max-temp">
+            <span class="unit">{{ response.main.temp_max - 273.15 | number:'1.0-1' }}&#176;</span>
+          </div>
+          <div class="min-temp">
+            <span class="unit">{{ response.main.temp_min - 273.15 | number:'1.0-1' }}&#176;</span>
+          </div>
+        </li>
+        <li class="list-group-item" style="width: 25%;">
+          <div class="speed">
+            <span class="unit">{{ response.wind.speed }} mile/hr</span>
+          </div>
+          <div class="direction">
+            <span class="unit">{{ response.wind.deg }}&#176;</span>
+          </div>
+        </li>
+        <li class="list-group-item" style="width: 25%;">
+          <div class="sunrise">
+            <span class="unit">{{ response.sys.sunrise * 1000 | date: 'shortTime' }}</span>
+          </div>
+          <div class="sunset">
+            <span class="unit">{{ response.sys.sunset * 1000 | date: 'shortTime' }}</span>
+          </div>
+        </li>
+        <li class="list-group-item" style="width: 20%;">
+          <div class="humidity">
+            <span class="unit">{{ response.main.humidity }}%</span>
+          </div>
+          <div class="pressure">
+            <span class="unit">{{ response.main.pressure / 1000 | number:'1.0-3' }} bar</span>
+          </div>
+        </li>
+        <li class="list-group-item" style="width: 15%;">
+          <div class="clouds">
+            <span class="unit">{{ response.clouds.all }}%</span>
+          </div>
+        </li>
+      </ul>
+    </div>
+  </div>
+  <p class="form-text text-muted text-right font-italic">Last updated at {{ response.dt * 1000 | date: 'longTime' }}</p>
+</div>
+<div class="row" *ngIf="forecast">
+  <div class="card custom-card" *ngFor="let item of forecast">
+    <h5 class="card-title">{{item.weather[0].main}}</h5>
+    <h6 class="card-subtitle mb-2 text-muted">{{ response.dt * 1000 | date: 'MMM d' }}</h6>
+    <div class="weather-icon">
+      <img src="{{icons_baseurl}}{{item.weather[0].icon}}{{icons_sufix}}" alt="{{item.weather[0].description}}">
+      <span class="temp">{{ item.main.temp - 273.15 | number:'1.0-0' }}&#176;</span>
+    </div>
   </div>
 </div>

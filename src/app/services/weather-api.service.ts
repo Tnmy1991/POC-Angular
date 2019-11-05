@@ -9,10 +9,15 @@ export class WeatherApiService {
 
   constructor( private http: HttpClient ) { }
 
-  private apiEndpoint: string = environment.openweather_api.endpoint;
+  private currentConditionEndpoint: string = environment.openweather_api.current_condition;
+  private forecastConditionEndpoint: string = environment.openweather_api.forecast_5days;
   private apiKey: string = environment.openweather_api.key;
 
   currentWeatherAPI( lat: number, lon: number ) {
-    return this.http.get( this.apiEndpoint + "?lat=" + lat + "&lon=" + lon + "&appid=" + this.apiKey );
+    return this.http.get( this.currentConditionEndpoint + "?lat=" + lat + "&lon=" + lon + "&appid=" + this.apiKey );
+  }
+
+  weatherForcastAPI( lat: number, lon: number ) {
+    return this.http.get( this.forecastConditionEndpoint + "?lat=" + lat + "&lon=" + lon + "&appid=" + this.apiKey );
   }
 }

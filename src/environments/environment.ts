@@ -14,14 +14,15 @@ export const environment = {
       host: "pincode.p.rapidapi.com",
       endpoint: "https://pincode.p.rapidapi.com/"
     },
-    railways_station: {
-      host: "rstations.p.rapidapi.com",
-      endpoint: "https://rstations.p.rapidapi.com/"
+    indian_railways: {
+      host: "indianrailways.p.rapidapi.com",
+      endpoint: "https://indianrailways.p.rapidapi.com/"
     }
   },
   openweather_api: {
     key: "ac4bf024b73edcba91d2143dc028cb09",
-    endpoint: "https://api.openweathermap.org/data/2.5/weather",
+    current_condition: "https://api.openweathermap.org/data/2.5/weather",
+    forecast_5days: "https://api.openweathermap.org/data/2.5/forecast",
     icons_url: "https://openweathermap.org/img/wn/",
     icons_suffix: "@2x.png"
   }
