@@ -9,11 +9,20 @@ export class SearchStationsApiService {
 
   constructor( private http: HttpClient ) { }
 
-  private apiPNREndpoint: string = environment.rapid_api.indian_railways.endpoint + "index.php";
+  private apiPNREndpoint: string = environment.rapid_api.indian_railways.endpoint + "index.php?pnr=";
   private apiFindStationEndpoint: string = environment.rapid_api.indian_railways.endpoint + "findstations.php?station=";
 
   searchRailwaysStations( station: string ) {
     return this.http.get( this.apiFindStationEndpoint + encodeURIComponent(station), {
+      "headers": {
+        "x-rapidapi-host": environment.rapid_api.indian_railways.host,
+        "x-rapidapi-key": environment.rapid_api.key
+      }
+    });
+  }
+
+  pnrStatusCheck( pnr: string ) {
+    return this.http.get( this.apiPNREndpoint + encodeURIComponent(pnr), {
       "headers": {
         "x-rapidapi-host": environment.rapid_api.indian_railways.host,
         "x-rapidapi-key": environment.rapid_api.key

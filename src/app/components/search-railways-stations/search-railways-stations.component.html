@@ -1,19 +1,85 @@
 <div class="card">
   <div class="card-body">
-    <div class="card-title">Railway Stations - India</div>
-    <form (ngSubmit)="searchStations()">
-      <div class="form-group">
-        <input type="email" class="form-control" [formControl]="searchField" placeholder="Enter location">
-        <div *ngIf="searchField.invalid && (searchField.dirty || searchField.touched)" class="alert alert-danger">
-          <small class="form-text text-muted"><em>*</em> Enter a valid address.</small>
-        </div>
-        <ul class="list-group" *ngIf="showResult">
-          <li class="list-group-item" *ngFor="let item of response">{{ item.stationName }} <span class="badge badge-secondary">{{ item.stationCode }}</span></li>
-        </ul>
+    <div class="card-title">Indian Railways API</div>
+    <div class="btn-group margin-bottom" role="group" aria-label="Search Modes">
+      <button type="submit" class="btn btn-primary" (click)="setSearchMode('pnr')">PNR Status Check</button>
+      <button type="submit" class="btn btn-primary" (click)="setSearchMode('find')">Find Stations</button>
+    </div>
+    <div class="card margin-bottom" *ngIf="searchMode == 'pnr'">
+      <div class="card-body">
+        <div class="card-title">PNR Status Check</div>
+        <form (ngSubmit)="checkStatus()">
+          <div class="form-group">
+            <input type="text" class="form-control" [formControl]="pnrStatusField" placeholder="Enter a pincode">
+            <div *ngIf="pnrStatusField.invalid && (pnrStatusField.dirty || pnrStatusField.touched)" class="alert alert-danger">
+              <small class="form-text text-muted"><em>*</em> Enter an invalid PNR code.</small>
+            </div>
+            <ul class="list-group" *ngIf="showResult">
+              <li class="list-group-item list-group-item-secondary"><strong>PNR <em>{{ response.pnr }}</em></strong></li>
+              <li class="list-group-item list-group-item-light" *ngIf="response.journeyDetails">
+                <ul class="list-group list-group-horizontal">
+                  <li class="list-group-item">
+                      <p class="text-justify">Train Number: {{ response.journeyDetails.trainNumber }}</p>
+                      <p class="text-justify">Train Name: {{ response.journeyDetails.trainName }}</p>
+                      <p class="text-justify">From: {{ response.journeyDetails.from }}</p>
+                      <p class="text-justify">To: {{ response.journeyDetails.to }}</p>
+                  </li>
+                  <li class="list-group-item">
+                    <p class="text-justify">Boarding Date: {{ response.journeyDetails.boardingDate }}</p>
+                    <p class="text-justify">Boarding Point: {{ response.journeyDetails.boardingPoint }}</p>
+                    <p class="text-justify">Reserved Upto: {{ response.journeyDetails.reservedUpto }}</p>
+                  </li>
+                  <li class="list-group-item">
+                    <p class="text-justify">Class: {{ response.journeyDetails.class }}</p>
+                  </li>
+                </ul>
+              </li>
+              <li class="list-group-item list-group-item-light" *ngIf="response.bookingStatus">
+                <table class="table table-striped">
+                  <thead>
+                    <tr>
+                      <th scope="col">Passenger No#</th>
+                      <th scope="col">Booking Status</th>
+                      <th scope="col">Current Status</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr *ngFor="let data of response.bookingStatus">
+                      <th scope="row">{{ data.passengerNo }}</th>
+                      <td>{{ data.bookingStatus }}</td>
+                      <td>{{ data.currentStatus }}</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </li>
+              <li class="list-group-item list-group-item-dark" *ngIf="response.lastUpdated">{{ response.lastUpdated }}</li>
+              <li class="list-group-item list-group-item-info" *ngIf="response.chartingStatus">{{ response.chartingStatus }}</li>
+              <li class="list-group-item list-group-item-danger" *ngIf="response.error">{{ response.error }}</li>
+            </ul>
+          </div>
+          <button type="submit" [disabled]="pnrStatusField.invalid" class="btn btn-primary">Check Status</button>
+        </form>
+        <small class="form-text text-muted"><em>*</em> Just give 10-digit pnr number and get the status.</small>
       </div>
-      <button type="submit" [disabled]="searchField.invalid" class="btn btn-primary">Verify</button>
-    </form>
-    <small class="form-text text-muted"><em>*</em> Search for a list of Indian Railway stations either through Station Name or Station Code.</small>
+    </div>
+    <div class="card margin-bottom" *ngIf="searchMode == 'find'">
+      <div class="card-body">
+        <div class="card-title">Find Stations</div>
+        <form (ngSubmit)="searchStations()">
+          <div class="form-group">
+            <input type="email" class="form-control" [formControl]="searchField" placeholder="Enter location">
+            <div *ngIf="searchField.invalid && (searchField.dirty || searchField.touched)" class="alert alert-danger">
+              <small class="form-text text-muted"><em>*</em> Enter a valid address.</small>
+            </div>
+            <ul class="list-group" *ngIf="showResult">
+              <li class="list-group-item" *ngFor="let item of response">{{ item.stationName }} <span class="badge badge-secondary">{{ item.stationCode }}</span></li>
+            </ul>
+          </div>
+          <button type="submit" [disabled]="searchField.invalid" class="btn btn-primary">Verify</button>
+        </form>
+        <small class="form-text text-muted"><em>*</em> Get station codes from the station name.</small>
+      </div>
+    </div>
   </div>
 </div>
 <div class="loader loader-default is-active" *ngIf="showLoader"></div>
