@@ -1,6 +1,8 @@
 .clear { clear:both; }
 .card { padding:1em; }
 .custom-card { width: 20%;}
+.temparature-summary {display: flex;}
+.temparature-summary div { width: 50%;}
 .city { font-family: Roboto;font-weight: 300;font-size: 1.8em;color:#5b5b5b;margin-bottom:10px; }
 .weather-icon { width:5em;height:5em;margin-top: 1em; }
 .inline-col { display: inline-grid;position: relative;padding: 0px;width: 100%; }

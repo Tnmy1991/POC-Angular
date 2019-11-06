@@ -1,6 +1,5 @@
 <div class="card">
   <div class="card-body">
-    <div class="card-title">Indian Railways API</div>
     <div class="btn-group margin-bottom" role="group" aria-label="Search Modes">
       <button type="submit" class="btn btn-primary" (click)="setSearchMode('pnr')">PNR Status Check</button>
       <button type="submit" class="btn btn-primary" (click)="setSearchMode('find')">Find Stations</button>
@@ -59,7 +58,6 @@
           </div>
           <button type="submit" [disabled]="pnrStatusField.invalid" class="btn btn-primary">Check Status</button>
         </form>
-        <small class="form-text text-muted"><em>*</em> Just give 10-digit pnr number and get the status.</small>
       </div>
     </div>
     <div class="card margin-bottom" *ngIf="searchMode == 'find'">
@@ -77,7 +75,6 @@
           </div>
           <button type="submit" [disabled]="searchField.invalid" class="btn btn-primary">Verify</button>
         </form>
-        <small class="form-text text-muted"><em>*</em> Get station codes from the station name.</small>
       </div>
     </div>
   </div>

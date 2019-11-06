@@ -61,6 +61,7 @@ export class WeatherWidgetComponent implements OnInit {
       for(var i=arrayIndex.length-1;i>=0;i--) {
         this.forecast.splice(arrayIndex[i], 1);
       }
+      console.log(this.forecast)
     });
   }
 }

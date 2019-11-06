@@ -5,24 +5,26 @@
     <hr class="my-4">
     <app-weather-widget></app-weather-widget>
     <hr class="my-4">
-    <p>It uses utility classes for typography and spacing to space content out within the larger container.</p>
-    <a class="btn btn-primary btn-lg" href="#" role="button">Learn more</a>
-  </div>
-  <div class="row">
-    <div class="col-lg-8">
-      <div class="margin-bottom">
+    <div class="card">
+      <div class="card-body">
+        <h5 class="card-title">Email Validator API</h5>
+        <p class="card-text text-justify">Checks for fake DNS as well as uses regex functions to check the email for the right length and accepted characters. For example it will mark as valid an email like 'john@gmail.com' but it will recognize as a fake 'john@gmaill.com' (because of the not existing domain).</p>
         <app-email-validator></app-email-validator>
       </div>
-      <div class="margin-bottom">
-        <!-- <app-words></app-words> -->
+    </div>
+    <div class="card">
+      <div class="card-body">
+        <h5 class="card-title">Pin Codes - India API</h5>
+        <p class="card-text text-justify">Find a list of post offices using either a postal code/pincode or search string in location name.</p>
         <app-search-post-offices></app-search-post-offices>
       </div>
-      <div class="margin-bottom">
+    </div>
+    <div class="card">
+      <div class="card-body">
+        <h5 class="card-title">Indian Railways API</h5>
+        <p class="card-text text-justify">Get station codes and also get PNR status of indian railways using this easy API, this is developed for educational purposes only and we are not affiliated to indian railways in any form and this is not an official api also.</p>
         <app-search-railways-stations></app-search-railways-stations>
       </div>
     </div>
-    <!-- <div class="col-lg-4">
-      <app-weather-widget></app-weather-widget>
-    </div> -->
   </div>
 </div>

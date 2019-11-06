@@ -54,10 +54,18 @@
 <div class="row" *ngIf="forecast">
   <div class="card custom-card" *ngFor="let item of forecast">
     <h5 class="card-title">{{item.weather[0].main}}</h5>
-    <h6 class="card-subtitle mb-2 text-muted">{{ response.dt * 1000 | date: 'MMM d' }}</h6>
+    <h6 class="card-subtitle mb-2 text-muted">{{ item.dt * 1000 | date: 'MMM d' }}</h6>
     <div class="weather-icon">
       <img src="{{icons_baseurl}}{{item.weather[0].icon}}{{icons_sufix}}" alt="{{item.weather[0].description}}">
       <span class="temp">{{ item.main.temp - 273.15 | number:'1.0-0' }}&#176;</span>
+    </div>
+    <div class="temparature-summary">
+      <div class="max-temp">
+        <span class="unit">{{ item.main.temp_max - 273.15 | number:'1.0-1' }}&#176;</span>
+      </div>
+      <div class="min-temp">
+        <span class="unit">{{ item.main.temp_min - 273.15 | number:'1.0-1' }}&#176;</span>
+      </div>
     </div>
   </div>
 </div>
