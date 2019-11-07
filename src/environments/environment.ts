@@ -17,6 +17,10 @@ export const environment = {
     indian_railways: {
       host: "indianrailways.p.rapidapi.com",
       endpoint: "https://indianrailways.p.rapidapi.com/"
+    },
+    numbers: {
+      host: "numbersapi.p.rapidapi.com",
+      endpoint: "https://numbersapi.p.rapidapi.com/"
     }
   },
   openweather_api: {

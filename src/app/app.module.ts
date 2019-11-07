@@ -9,6 +9,7 @@ import { WordsComponent } from './components/words/words.component';
 import { WeatherWidgetComponent } from './components/weather-widget/weather-widget.component';
 import { SearchPostOfficesComponent } from './components/search-post-offices/search-post-offices.component';
 import { SearchRailwaysStationsComponent } from './components/search-railways-stations/search-railways-stations.component';
+import { NumbersFactsComponent } from './components/numbers-facts/numbers-facts.component';
 
 @NgModule({
   declarations: [
@@ -17,7 +18,8 @@ import { SearchRailwaysStationsComponent } from './components/search-railways-st
     WordsComponent,
     WeatherWidgetComponent,
     SearchPostOfficesComponent,
-    SearchRailwaysStationsComponent
+    SearchRailwaysStationsComponent,
+    NumbersFactsComponent
   ],
   imports: [
     BrowserModule,
