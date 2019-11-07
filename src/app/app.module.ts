@@ -9,7 +9,6 @@ import { WordsComponent } from './components/words/words.component';
 import { WeatherWidgetComponent } from './components/weather-widget/weather-widget.component';
 import { SearchPostOfficesComponent } from './components/search-post-offices/search-post-offices.component';
 import { SearchRailwaysStationsComponent } from './components/search-railways-stations/search-railways-stations.component';
-import { BreezoMeterComponent } from './components/breezo-meter/breezo-meter.component';
 
 @NgModule({
   declarations: [
@@ -18,8 +17,7 @@ import { BreezoMeterComponent } from './components/breezo-meter/breezo-meter.com
     WordsComponent,
     WeatherWidgetComponent,
     SearchPostOfficesComponent,
-    SearchRailwaysStationsComponent,
-    BreezoMeterComponent
+    SearchRailwaysStationsComponent
   ],
   imports: [
     BrowserModule,
