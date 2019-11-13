@@ -10,6 +10,8 @@ import { WeatherWidgetComponent } from './components/weather-widget/weather-widg
 import { SearchPostOfficesComponent } from './components/search-post-offices/search-post-offices.component';
 import { SearchRailwaysStationsComponent } from './components/search-railways-stations/search-railways-stations.component';
 import { NumbersFactsComponent } from './components/numbers-facts/numbers-facts.component';
+import { WikiSynonymComponent } from './components/wiki-synonym/wiki-synonym.component';
+import { UrlShortenerComponent } from './components/url-shortener/url-shortener.component';
 
 @NgModule({
   declarations: [
@@ -19,7 +21,9 @@ import { NumbersFactsComponent } from './components/numbers-facts/numbers-facts.
     WeatherWidgetComponent,
     SearchPostOfficesComponent,
     SearchRailwaysStationsComponent,
-    NumbersFactsComponent
+    NumbersFactsComponent,
+    WikiSynonymComponent,
+    UrlShortenerComponent
   ],
   imports: [
     BrowserModule,

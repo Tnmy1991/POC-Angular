@@ -17,6 +17,14 @@ export const environment = {
     numbers: {
       host: "numbersapi.p.rapidapi.com",
       endpoint: "https://numbersapi.p.rapidapi.com/"
+    },
+    wiki: {
+      host: "wikisynonyms.p.rapidapi.com",
+      endpoint: "https://wikisynonyms.p.rapidapi.com/"
+    },
+    url_shortener: {
+      host: "url-shortener-service.p.rapidapi.com",
+      endpoint: "https://url-shortener-service.p.rapidapi.com/shorten"
     }
   },
   openweather_api: {

@@ -1,0 +1,2 @@
+.redirect-link:before { content:url('../../../assets/icons/external-link.png');margin-left: 15px; }
+.clipboard:before { content:url('../../../assets/icons/copy.png');margin-left: 15px; }
